@@ -1,0 +1,16 @@
+# -*- mode: ruby -*-
+Vagrant.configure("2") do |config|
+
+  # Specify the vagrant box to use
+  config.vm.box = "chef/centos-7.0"
+
+  # Specify the network configuration
+  config.vm.network :forwarded_port, guest: 80, host: 8931, auto_correct: true
+
+  # Sync vagrant with project directory
+  config.vm.synced_folder "../", "/vanilla"
+
+  # Provision vagrant box
+  config.vm.provision :shell, path: "bootstrap.sh"
+
+end
