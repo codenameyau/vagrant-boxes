@@ -6,16 +6,14 @@ worth of headaches. Enjoy!
 ### Getting Started
 Install requirements with: `pip install -r development.txt`
 
-Then create a `secrets.json` with the following:
-```
+Then create `secrets.json` in the project directory with the following:
+```json
 {
   "SECRET_KEY": ""
 }
 ```
 
 Run `./manage generate_secret_key` and save that secret key inside your `secrets.json`.
-That secret key should be the same amongst developers and production environments, but
-should **not** be included in source control.
 
 ### Choosing Settings File
 The default settings file used is `vanilla.settings.base`. You can configure

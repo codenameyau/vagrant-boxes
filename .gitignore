@@ -1,4 +1,25 @@
-# Byte-compiled / optimized / DLL files
+################################################################
+# PROJECT-RELATED FILES
+################################################################
+
+
+
+################################################################
+# SECRET / UNSHARED FILES
+################################################################
+
+# Secret key
+secrets.json
+
+# Unshared
+*.sqlite3
+
+
+################################################################
+# MISCELLANEOUS FILES
+################################################################
+
+# Binary files
 __pycache__/
 *.py[cod]
 
@@ -18,15 +39,18 @@ lib64/
 parts/
 sdist/
 var/
+bower_components/
+node_modules/
+
+# Temp files
 *.egg-info/
 .installed.cfg
 *.egg
-
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+MANIFEST
 *.manifest
 *.spec
+*.tmp
+**~
 
 # Installer logs
 pip-log.txt
@@ -52,3 +76,7 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# OS related
+.DS_Store
+.vagrant
