@@ -1,29 +1,21 @@
 # django-vanilla
-Django boilerplate with Two Scopes best practices.
+Django boilerplate with best practices from Two Scopes of Django.
 
-## Running Application
+This Django-1.7 boilerplate should save you a week's worth
+of developer time and a year's worth of headaches. Enjoy!
 
-#### Manually specify settings
-You can either manually specify which settings file to use:
+### Getting Started
+Install requirements with: `pip install -r development.txt`
+Generate `secrets.json` and run `./manage generate_secret_key`
 
-Base:
-`./manage.py runserver`
+### Choosing Settings File
+The default settings file used is `vanilla.settings.base`. You can configure
+which settings file to use with command line arguments or with environment variables.
+See the [Choosing Django Settings wiki page](https://github.com/codenameyau/django-vanilla/wiki/Choosing-Django-Settings).
 
-Local / Development:
-`./manage.py runserver --settings=vanilla.settings.local`
+### Vagrant
+Whether you're creating a full-fledge web application or working with multiple developers,
+it is highly recommended to use a vagrant box as your development environment.
+See the [Vagrant wiki page](https://github.com/codenameyau/django-vanilla/wiki/Vagrant).
 
-Staging:
-`./manage.py runserver --settings=vanilla.settings.staging`
-
-Production:
-`./manage.py runserver --settings=vanilla.settings.production`
-
-#### Set Environment variable
-Or set your `DJANGO_SETTINGS_MODULE` environment variable,
-either manually or add it to your `.bashrc` or `.bash_profile`.
-
-Like so:
-`export DJANGO_SETTINGS_MODULE="vanilla.settings.local"`
-
-If you're using a python virtual environment add the statement
-above in the end of your `/bin/active`.
+### Philosophies

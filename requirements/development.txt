@@ -1,2 +1,1 @@
 -r base
-django-extensions==1.5.1
