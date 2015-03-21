@@ -1,3 +1,2 @@
 -r base
 django-extensions==1.5.1
-six==1.9.0
