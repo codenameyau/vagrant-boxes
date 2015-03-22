@@ -1,1 +1,2 @@
--r base
+-r base.txt
+pylibmc==1.4.1
