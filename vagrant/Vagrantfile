@@ -1,11 +1,28 @@
 # -*- mode: ruby -*-
+# vi: set ft=ruby :
+
 Vagrant.configure("2") do |config|
 
   # Specify the vagrant box to use
   config.vm.box = "chef/centos-7.0"
 
-  # Specify the network configuration
-  config.vm.network :forwarded_port, guest: 80, host: 8931, auto_correct: true
+  # Forward port 8000: Default Django runserver port
+  config.vm.network "forwarded_port", guest: 8000, host: 8000
+
+  # Forward port 5432: Default PostgreSQL port
+  config.vm.network "forwarded_port", guest: 5432, host: 5433
+
+  # Foward port 3306: Default MySQL port
+  config.vm.network "forwarded_port", guest: 3306, host: 3307
+
+  # Provider-specific configuration
+  config.vm.provider "virtualbox" do |vb|
+    # Display the VirtualBox GUI when booting the machine
+    vb.gui = false
+
+    # Customize the amount of memory on the VM
+    vb.memory = "2048"
+  end
 
   # Sync vagrant with project directory
   config.vm.synced_folder "../", "/vanilla"
