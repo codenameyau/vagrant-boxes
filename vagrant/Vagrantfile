@@ -10,10 +10,7 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 8000, host: 8000
 
   # Forward port 5432: Default PostgreSQL port
-  config.vm.network "forwarded_port", guest: 5432, host: 5433
-
-  # Foward port 3306: Default MySQL port
-  config.vm.network "forwarded_port", guest: 3306, host: 3307
+  config.vm.network "forwarded_port", guest: 5432, host: 5432
 
   # Provider-specific configuration
   config.vm.provider "virtualbox" do |vb|
@@ -25,7 +22,7 @@ Vagrant.configure("2") do |config|
   end
 
   # Sync vagrant with project directory
-  config.vm.synced_folder "../", "/vanilla"
+  config.vm.synced_folder "../", "/application"
 
   # Provision vagrant box
   config.vm.provision :shell, path: "bootstrap.sh"

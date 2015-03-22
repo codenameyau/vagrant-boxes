@@ -6,7 +6,29 @@ Follow these steps to setup and provision a vagrant box with **centos-7**.
 and [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
 2. Open a terminal and navigate to this directory.
 3. Run: `vagrant up`
-4. Enjoy the magic show.
+4. Grab a beer and enjoy the magic show.
 5. Once your box has been provisioned, you can ssh into the vagrant box with `vagrant ssh`
 6. To start your Django server, run: `sudo python manage.py runserver 0.0.0.0:8000`
 7. To power off the vagrant box (outside of ssh), run: `vagrant halt`
+
+#### Notes
+- Your virtualbox should be at least version `4.3.26`.
+You can check which version you have with `vboxmanage --version`.
+- Traffic from ports `8000` and `5432` are fowarded to the vagrant box.
+Make sure that these ports are not in use in your personal machine.
+
+#### Errors
+If you get the following error:
+
+`/sbin/mount.vboxsf: mounting failed with the error: No such device`
+
+Then you'll need to update your virtualbox to at least version `4.3.26`.
+
+#### Warnings
+If you get the following warning:
+
+`GuestAdditions versions on your host and guest do not match.`
+
+Then install the following plugin:
+
+`vagrant plugin install vagrant-vbguest`
