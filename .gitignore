@@ -11,6 +11,9 @@
 # Secret key
 secrets.json
 
+# Secrets setting
+*/settings/secrets.py
+
 # Unshared
 *.sqlite3
 
