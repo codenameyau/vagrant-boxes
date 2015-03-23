@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Provision as root (do not use: -)
+# Run as user: root (without -)
 sudo su
 
 ################################################################
@@ -29,11 +29,7 @@ yum -y install python-devel python-pip
 yum -y install memcached libmemcached-devel
 
 # PostgreSQL
-yum -y install postgresql-server
-
-# Pip requirements
-cd /application/
-pip install -r requirements/development.txt
+yum -y install postgresql-server postgresql-devel
 
 
 ################################################################
@@ -46,20 +42,35 @@ systemctl enable memcached.service
 
 # Start Service: PostgreSQL
 postgresql-setup initdb
+systemctl start postgresql.service
 systemctl enable postgresql.service
 
+# Create Postgres superuser: vagrant
+runuser -l postgres -c "createuser -s -e vagrant"
+runuser -l vagrant -c "createdb"
+
 
 ################################################################
-# BASHRC / ALIAS CUSTOMIZATION
+# BASH / ENVIRONMENT CONFIGURATION
 ################################################################
 
-# Get bashrc of vagrant user
-BASHRC='/home/vagrant/.bashrc'
-echo "Configuring "$BASHRC
-echo -e "\n#Vagrant customizations" >> $BASHRC
+# Create new .bashrc
+BASHRC="/home/vagrant/.bashrc"
+echo "Creating "$BASHRC
+echo -e ". /etc/bashrc" > $BASHRC
 
-# Set DJANGO_SETTINGS_MODULE to development
+# Set Django environments to development
 echo -e "export DJANGO_SETTINGS_MODULE=vanilla.settings.development" >> $BASHRC
+echo -e "export DJANGO_DATABASE=development" >> $BASHRC
 
-# Set default directory
+# Set the default directory
 echo -e "cd /application/" >> $BASHRC
+
+
+################################################################
+# DJANGO APPLICATION SETUP
+################################################################
+
+# Pip requirements
+cd /application/
+pip install -r requirements/development.txt
