@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Run as user: root (without -)
+# Run as root (without -)
 sudo su
 
 ################################################################
@@ -33,7 +33,7 @@ yum -y install postgresql-server postgresql-devel
 
 
 ################################################################
-# SERVICES / ENVIRONMENT SETUP
+# SERVICES SETUP
 ################################################################
 
 # Start Service: Memcached
@@ -51,20 +51,16 @@ runuser -l vagrant -c "createdb"
 
 
 ################################################################
-# BASH / ENVIRONMENT CONFIGURATION
+# BASHRC / ENVIRONMENT CONFIGURATION
 ################################################################
 
-# Create new .bashrc
-BASHRC="/home/vagrant/.bashrc"
-echo "Creating "$BASHRC
-echo -e ". /etc/bashrc" > $BASHRC
-
-# Set Django environments to development
-echo -e "export DJANGO_SETTINGS_MODULE=vanilla.settings.development" >> $BASHRC
-echo -e "export DJANGO_DATABASE=development" >> $BASHRC
-
-# Set the default directory
-echo -e "cd /application/" >> $BASHRC
+# Append custom bash configurations
+CUSTOM_BASHRC="/vagrant/.bashrc"
+VAGRANT_BASHRC="/home/vagrant/.bashrc"
+if [ -f $CUSTOM_BASHRC ]; then
+  echo "Updating "$VAGRANT_BASHRC
+  cat $CUSTOM_BASHRC > $VAGRANT_BASHRC
+fi
 
 
 ################################################################

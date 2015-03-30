@@ -8,9 +8,9 @@ worth of headaches. Enjoy!
 Whether you're creating a full-fledge web application or working with multiple developers,
 it is highly recommended to use a vagrant box as your development environment.
 
-##### Two Simple Steps
+##### Two Simple Setup Steps
 1. See the [Development Setup](https://github.com/codenameyau/django-vanilla/wiki/Development-Setup)
-to first configure your project.
+to configure your project.
 2. Follow the [Vagrant Setup](https://github.com/codenameyau/django-vanilla/tree/master/vagrant#vagrant-centos-7) to create your Django Vagrant box.
 
 ### Choosing Settings File

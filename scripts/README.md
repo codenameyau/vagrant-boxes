@@ -1,4 +1,4 @@
-### django-extension scripts
+# django-extension scripts
 
 Documentation Link:
 http://django-extensions.readthedocs.org/en/latest/runscript.html
