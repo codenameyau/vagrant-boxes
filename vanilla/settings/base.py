@@ -27,19 +27,19 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.admin',
 ]
 
-THIRD_PARTY_APPS = [
-    'django_extensions',
+PLUGIN_APPS = [
     'grappelli',
+    'django_extensions',
+    'django.contrib.admin',
 ]
 
 PROJECT_APPS = [
     'vanilla.apps.core',
 ]
 
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
+INSTALLED_APPS = DJANGO_APPS + PLUGIN_APPS + PROJECT_APPS
 
 
 ################################################################
