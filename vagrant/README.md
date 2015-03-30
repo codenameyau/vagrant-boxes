@@ -9,7 +9,7 @@ and [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
 4. Grab a beer and enjoy the magic show.
 5. The postgres superuser and database `vagrant` will be automatically created.
 6. SSH into the vagrant box with `vagrant ssh`
-7. Run: `./manage.py syncdb`
+7. Run: `./manage.py syncdb` and `./manage.py migrate`
 8. Start the Django server: `sudo python manage.py runserver 0.0.0.0:8000`
 
 

@@ -27,10 +27,13 @@ ALLOWED_HOSTS += [
 ################################################################
 # PRODUCTION CACHE SETTINGS
 ################################################################
+CACHE_MIDDLEWARE_SECONDS = 300
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.PyLibMCCache',
-        'LOCATION': [''],
+        'LOCATION': [
+            '127.0.0.1:11211'
+        ],
         'TIMEOUT': 300,
     }
 }

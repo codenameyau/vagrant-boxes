@@ -54,7 +54,7 @@ runuser -l vagrant -c "createdb"
 # BASHRC / ENVIRONMENT CONFIGURATION
 ################################################################
 
-# Append custom bash configurations
+# Copy custom bashrc
 CUSTOM_BASHRC="/vagrant/.bashrc"
 VAGRANT_BASHRC="/home/vagrant/.bashrc"
 if [ -f $CUSTOM_BASHRC ]; then

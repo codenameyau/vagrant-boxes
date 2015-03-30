@@ -7,7 +7,7 @@ then feel free to add this file to .gitignore
 from vanilla.settings.base import *
 
 ################################################################
-# BASE APPLICATION SETTINGS
+# DEVELOPMENT APPLICATION SETTINGS
 ################################################################
 INSTALLED_APPS += [
 
@@ -15,7 +15,7 @@ INSTALLED_APPS += [
 
 
 ################################################################
-# LOCAL CONFIGURATION SETTINGS
+# DEVELOPMENT CONFIGURATION SETTINGS
 ################################################################
 DEBUG = True
 TEMPLATE_DEBUG = True
@@ -28,10 +28,15 @@ TEMPLATE_LOADERS = (
     )
 )
 
-# Use local memchaced instance
+
+################################################################
+# DEVELOPMENT CACHE SETTINGS
+################################################################
+CACHE_MIDDLEWARE_SECONDS = 30
 CACHES = {
-   'default': {
-       'BACKEND': 'django.core.cache.backends.memcached.PyLibMCCache',
-       'LOCATION': 'localhost:11211'
-   },
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.PyLibMCCache',
+        'LOCATION': '127.0.0.1:11211',
+        'TIMEOUT': 30,
+    }
 }
