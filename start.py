@@ -3,7 +3,7 @@ Script: start.py
 
 Description:
 This script is used to provision a new django-vagrant-box project.
-Generates a `secrets.json` with a unique secret key and blank `secrets.py`.
+Generates a `secrets.py` settings file and a `secrets.json` secret key.
 """
 from random import choice
 import textwrap
