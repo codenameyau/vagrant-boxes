@@ -31,12 +31,14 @@ DJANGO_APPS = [
 
 PLUGIN_APPS = [
     'grappelli',
+    'braces',
     'django_extensions',
     'django.contrib.admin',
 ]
 
 PROJECT_APPS = [
     'vanilla.apps.core',
+    'vanilla.apps.website',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PLUGIN_APPS + PROJECT_APPS
