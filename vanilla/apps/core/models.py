@@ -7,8 +7,7 @@ from django.db import models
 
 class TimeStampedModel(models.Model):
     """
-    An abstract class model that provides the auto-updating
-    fields: (1) created and (2) modified.
+    Abstract model that provides the date created and modified fields.
     """
     created  = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)

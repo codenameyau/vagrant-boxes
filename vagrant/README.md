@@ -14,9 +14,8 @@ and [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
 
 
 #### Notes
-- To power off the vagrant box (outside of ssh), run: `vagrant halt`
-- Your virtualbox should be at least version `4.3.26`.
-You can check which version you have with `vboxmanage --version`.
+- Power off the vagrant box with: `vagrant halt`
+- Try to use the latest version of virtualbox `>= 4.3.26`.
 - Traffic from ports `8000` and `5432` are fowarded to the vagrant box.
 Make sure that these ports are not in use in your personal machine.
 

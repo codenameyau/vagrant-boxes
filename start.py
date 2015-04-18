@@ -11,7 +11,7 @@ import json
 import os.path
 
 
-def save_unwritten_file(file_path, text):
+def create_file(file_path, text):
     if not os.path.exists(file_path):
         with open(file_path, 'w') as fp:
             fp.write(text)
@@ -23,14 +23,14 @@ def save_unwritten_file(file_path, text):
 def generate_secret_key():
     return ''.join([
         choice('abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)')
-        for i in range(50)])
+        for i in xrange(50)])
 
 
 def create_secrets_json():
     secrets = json.dumps({
         'SECRET_KEY': generate_secret_key(),
     }, indent=4, sort_keys=True)
-    save_unwritten_file('secrets.json', secrets)
+    create_file('secrets.json', secrets)
 
 
 def create_secrets_python():
@@ -71,7 +71,7 @@ def create_secrets_python():
     EMAIL_USE_TLS = True
     EMAIL_PORT = 587
     ''')
-    save_unwritten_file('vanilla/settings/secrets.py', secrets_boilerplate)
+    create_file('vanilla/settings/secrets.py', secrets_boilerplate)
 
 
 def main():
