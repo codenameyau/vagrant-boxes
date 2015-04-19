@@ -16,11 +16,9 @@ yum -y --security upgrade
 # CentOS EPEL
 yum -y install epel-release
 
-# System packages
-yum -y install gcc kernel-devel make zlib-devel
-
-# Developer packages
-yum -y install git
+# Development and System packages
+yum -y groupinstall "Development Tools" "Development Libraries"
+yum -y install gcc kernel-devel make zlib-devel git
 
 # Python packages
 yum -y install python-devel python-pip
