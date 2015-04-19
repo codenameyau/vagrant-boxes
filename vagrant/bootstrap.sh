@@ -7,17 +7,10 @@ sudo su
 # PACKAGE INSTALLATION
 ################################################################
 
-# Update existing packages
-yum -y update
-
-# Upgrade security packages
-yum -y --security upgrade
-
 # CentOS EPEL
 yum -y install epel-release
 
 # Development and System packages
-yum -y groupinstall "Development Tools" "Development Libraries"
 yum -y install gcc kernel-devel make zlib-devel git
 
 # Python packages
