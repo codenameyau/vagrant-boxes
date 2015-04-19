@@ -11,7 +11,12 @@ Follow the instructions below.
 By default, your project will not run because it is missing these files:
 `secrets.json` and `secrets.py`. These files are ignored in source control.
 
-Generate these files with: `python start.py`
+Generate these files with:
+```
+python start.py
+```
+
+You will first be prompted to rename your project.
 
 ### Setup Vagrant
 Whether you're creating a full-fledge web application or working with multiple developers,

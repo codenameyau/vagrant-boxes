@@ -2,29 +2,78 @@
 Script: start.py
 
 Description:
-This script is used to provision a new django-vagrant-box project.
+This script is used to setup a new django-vagrant-box project.
 Generates a `secrets.py` settings file and a `secrets.json` secret key.
+
+Important! Run in this Order:
+1. `python start.py`
+2. `vagrant up`
+3. `vagrant ssh`
+4. `./manage.py syncdb`
 """
 from random import choice
 import textwrap
 import json
 import os.path
+import sys
 
 
+################################################################
+# RENAME PROJECT SCRIPT
+################################################################
+def substitute_text(filepath, old, new):
+    data = ''
+    with open(filepath, 'r') as fin:
+        data = fin.read()
+    with open(filepath, 'w') as fout:
+        fout.write(data.replace(old, new))
+
+def rename_project():
+    old_name = 'vanilla'
+
+    # This script should only be run once.
+    if not os.path.exists(old_name):
+        sys.exit("Exit: You should only run this script once.")
+
+    # Enter new project name from input.
+    new_name = raw_input('Enter your project name: ').lower().replace(' ', '')
+    new_name = new_name if new_name else old_name
+    filetypes = ('.py', 'bashrc')
+
+    # Substite text in python source files.
+    for path, dirs, files in os.walk('.'):
+
+        # Ignore hidden files.
+        if path.startswith('./.'):
+            continue
+
+        # Match filenames in filetypes, but ignore 'start.py'
+        for filename in files:
+            if filename != __file__ and filename.endswith(filetypes):
+                filepath = '{0}/{1}'.format(path, filename)
+                substitute_text(filepath, old_name, new_name)
+
+    # Rename project directory.
+    os.rename(old_name, new_name)
+    print("\nSuccessfully renamed project to: '{0}'".format(new_name))
+    return new_name
+
+
+################################################################
+# GENERATE SECRETS SCRIPT
+################################################################
 def create_file(file_path, text):
     if not os.path.exists(file_path):
         with open(file_path, 'w') as fp:
             fp.write(text)
-            print "File created: '{0}'".format(file_path)
+            print("File created: '{0}'".format(file_path))
     else:
-        print "File already exists: '{0}'".format(file_path)
-
+        print("File already exists: '{0}'".format(file_path))
 
 def generate_secret_key():
     return ''.join([
         choice('abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)')
         for i in xrange(50)])
-
 
 def create_secrets_json():
     secrets = json.dumps({
@@ -32,8 +81,7 @@ def create_secrets_json():
     }, indent=4, sort_keys=True)
     create_file('secrets.json', secrets)
 
-
-def create_secrets_python():
+def create_secrets_python(project):
     secrets_boilerplate = textwrap.dedent(
     '''
     """
@@ -71,13 +119,13 @@ def create_secrets_python():
     EMAIL_USE_TLS = True
     EMAIL_PORT = 587
     ''')
-    create_file('vanilla/settings/secrets.py', secrets_boilerplate)
+    create_file(project+'/settings/secrets.py', secrets_boilerplate)
 
 
 def main():
+    project = rename_project()
+    create_secrets_python(project)
     create_secrets_json()
-    create_secrets_python()
-
 
 if __name__ == '__main__':
     main()
