@@ -75,13 +75,12 @@ from unipath import Path
 
 # Same directory as `manage.py`
 BASE_DIR = Path(__file__).ancestor(3)
-
-# Change production settings for dedicated servers
-STATIC_ROOT = BASE_DIR.child('static')
-MEDIA_ROOT  = BASE_DIR.child('media')
 STATIC_URL  = '/static/'
 MEDIA_URL   = '/media/'
 
+STATICFILES_DIRS = (
+    BASE_DIR.child('static'),
+)
 
 ################################################################
 # BASE MIDDLEWARE SETTINGS

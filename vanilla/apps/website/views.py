@@ -4,7 +4,6 @@ Application: website
 Contains the views for static websites. You should put static content
 like the 'About' page here.
 """
-from django.http import HttpResponse
 from django.shortcuts import render
 
 def home(request):
@@ -12,5 +11,4 @@ def home(request):
     Default homepage for the django-vagrant-box project.
     Feel free to delete this view when it's no longer needed.
     """
-    return HttpResponse(status=200)
-
+    return render(request, 'index.html')

@@ -22,6 +22,8 @@ ALLOWED_HOSTS += [
 
 # For larger sites, it is recommended to host
 # static and media files on different servers.
+# STATIC_ROOT = BASE_DIR.child('static')
+# MEDIA_ROOT  = BASE_DIR.child('media')
 
 
 ################################################################
