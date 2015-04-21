@@ -1,0 +1,49 @@
+/**************************************************************!
+* Feel free to obliterate this stylesheet
+***************************************************************/
+@import url(http://fonts.googleapis.com/css?family=Raleway:300);
+
+body {
+  margin: 0;
+  background: #232323;
+}
+
+a {
+  color: #222222;
+  text-decoration: none;
+  border-bottom: dotted 1px;
+  transition: color 0.3s ease-in;
+}
+
+a:hover {
+  color: #E92213;
+}
+
+.card {
+  font-family: 'Raleway', sans-serif;
+  background: #ffffff;
+  margin: 100px auto 0 auto;
+  width: 480px;
+  height: 550px;
+  color: #222222;
+  letter-spacing: 2px;
+}
+
+.card-title {
+  border-bottom: solid 1px #aaaaaa;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 30px;
+  font-size: 30px;
+  color: #092F1D;
+}
+
+.card-body {
+  padding: 20px 40px;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.card-paragraph {
+  margin-bottom: 30px;
+}
