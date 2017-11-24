@@ -5,27 +5,22 @@ Download and install both [Vagrant](https://www.vagrantup.com/downloads.html)
 and [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
 
 ### Commands
-Start and provision box
 ```bash
 vagrant up
 ```
 
-Provision box
 ```bash
 vagrant provision
 ```
 
-Destroy box
 ```bash
 vagrant destroy
 ```
 
-Power off box
 ```bash
 vagrant halt
 ```
 
-SSH into box
 ```bash
 vagrant ssh
 ```
