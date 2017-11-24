@@ -5,13 +5,33 @@ Download and install both [Vagrant](https://www.vagrantup.com/downloads.html)
 and [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
 
 ### Commands
-- Start and provision box: `vagrant up`
-- Provision box: `vagrant provision`
-- Destroy box: `vagrant destroy`
-- Power off box: `vagrant halt`
-- SSH into box: `vagrant ssh`
+Start and provision box
+```bash
+vagrant up
+```
+
+Provision box
+```bash
+vagrant provision
+```
+
+Destroy box
+```bash
+vagrant destroy
+```
+
+Power off box
+```bash
+vagrant halt
+```
+
+SSH into box
+```bash
+vagrant ssh
+```
+
 
 ### Notes
 - Try to always use the latest version of virtualbox.
-- You may run into issues with port forwarding and virtual host.
+- You may run into issues with port forwarding and virtual host versions.
 - Google your solution.
