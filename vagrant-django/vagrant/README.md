@@ -2,7 +2,7 @@
 
 Follow these steps to setup and provision a vagrant box with **centos-7**.
 
-1. Download and install both [Vagrant](http://www.vagrantup.com/downloads)
+1. Download and install both [Vagrant](https://www.vagrantup.com/downloads.html)
 and [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
 2. Open a terminal and navigate to the `vagrant/` directory.
 3. Run: `vagrant up`

@@ -1,85 +1,67 @@
-################################################################
-# PROJECT-RELATED FILES
-################################################################
+#####################################################################
+# PROJECT FILES
+#####################################################################
 
 
 
-################################################################
-# SECRET / UNSHARED FILES
-################################################################
+#####################################################################
+# JAVASCRIPT SPECIFIC
+#####################################################################
 
-# Secret key
-secrets.json
+# PACKAGE MANAGEMENT
+node_modules
+jspm_packages
+bower_components
 
-# Secrets setting
-*/settings/secrets.py
+# TEST COVERAGE
+lib-cov
+coverage
 
-# Unshared
-*.sqlite3
+# BUILD TOOLS
+.grunt
+dist
+
+# CONFIGURATION
+.lock-wscript
+.idea
 
 
-################################################################
-# MISCELLANEOUS FILES
-################################################################
-
-# Binary files
-__pycache__/
-*.py[cod]
-
-# C extensions
-*.so
-
-# Distribution / packaging
-.Python
-env/
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-bower_components/
-node_modules/
-
-# Temp files
-*.egg-info/
-.installed.cfg
+#####################################################################
+# PYTHON SPECIFIC
+#####################################################################
+*.py[cd]
 *.egg
-MANIFEST
-*.manifest
+
+
+#####################################################################
+# MISCELLANEOUS FILES
+#####################################################################
+
+# DATABASE
+*.sqlite*
+
+# TEMP / CACHE
+temp
+.sass-cache
+.cache
 *.spec
 *.tmp
-**~
+*~
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+# RUNTIME DATA
+pids
+*.pid
+*.seed
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.coverage
-.cache
-nosetests.xml
-coverage.xml
-
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
+# LOGS
+[Ll]og*
 *.log
 
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
-target/
-
-# OS related
+# OS CRUFT
 .DS_Store
+.DS_STORE
+thumbs.db
+._*
+
+# DEVOPS
 .vagrant
